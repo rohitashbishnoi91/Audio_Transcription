@@ -1,6 +1,6 @@
 # Audio Transcription and Blog Title Generation System
 
-A Django-based application that provides audio transcription with speaker diarization and AI-powered blog title generation.
+A Django-based application that provides audio transcription with speaker diarization and template-based blog title generation.
 
 ## Features
 
@@ -12,12 +12,21 @@ A Django-based application that provides audio transcription with speaker diariz
 - Includes speaker identification ("who spoke when")
 - Handles various audio formats (WAV, MP3, etc.)
 
-### 2. AI Blog Title Generation
-- Generates title suggestions using Facebook's BART model
-- Implements multiple generation strategies for diverse titles
-- Provides confidence scores for suggestions
+### 2. Blog Title Generation
+- Generates title suggestions using a template-based approach
+- Provides diverse title suggestions based on content analysis
+- Includes confidence scores for suggestions
 - Supports title updates and regeneration
-- Caches models for better performance
+- Uses a simple but effective pattern matching system
+- Templates include various formats like:
+  * "The Future of {topic}"
+  * "Understanding {topic}: A Comprehensive Guide"
+  * "How {topic} is Changing the World"
+  * "The Impact of {topic} on Society"
+  * "Exploring the World of {topic}"
+  * "Why {topic} Matters in 2024"
+  * "The Evolution of {topic}"
+  * "Breaking Down {topic}: What You Need to Know"
 
 ## Prerequisites
 
@@ -29,7 +38,7 @@ A Django-based application that provides audio transcription with speaker diariz
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/rohitashbishnoi/Audio_Transcription.git
+git clone https://github.com/rohitashbishnoi91/Audio_Transcription.git
 cd Audio_Transcription
 ```
 
@@ -228,12 +237,12 @@ Audio_Transcription/
 ### Models Used
 - **Transcription**: Whisper (OpenAI) for speech recognition
 - **Diarization**: Pyannote.audio for speaker identification
-- **Title Generation**: BART (Facebook) for text generation
+- **Title Generation**: Template-based system with pattern matching
 
 ### Features
 - GPU acceleration when available
 - Model caching for better performance
-- Multiple title generation strategies
+- Template-based title generation with multiple patterns
 - Comprehensive error handling
 - Status tracking for long operations
 - Multilingual support
@@ -267,6 +276,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"content":"Your blog post 
 - Ensure your Hugging Face token has the correct permissions
 - Accept the terms of use for all required models
 - The system supports various audio formats but works best with WAV files
+- Title generation uses a template-based approach for reliable and consistent results
 
 ## Author
 
